@@ -6,3 +6,12 @@
 /.vs/IceRescue
 *.json
 *.sqlite
+/prj/IceRescue/x64/Debug
+/prj/x64/Debug
+/prj/.vs/IceRescue/FileContentIndex
+.vs/
+*.ipch
+*.suo
+*.VC.db
+*.opendb
+*.zip
