@@ -1,39 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{ab770eec-562b-412a-b960-53da23888c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\main">
+      <UniqueIdentifier>{d26558a4-ba41-4951-87a7-2816a90e91de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\game">
+      <UniqueIdentifier>{f70ad42b-3d11-485d-90e1-565df443c4df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\input">
+      <UniqueIdentifier>{93e4df91-0097-4b53-bffb-28132fb75ae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\game\base">
+      <UniqueIdentifier>{7674d805-c874-485d-8c7c-59af6e051261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\game\entity">
+      <UniqueIdentifier>{694c5a00-50c9-49e3-9777-91087ccac7fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\game\entity\player">
+      <UniqueIdentifier>{5434cb9f-c4c2-40fd-b546-fe9b07ee360a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\game\entity\obj">
+      <UniqueIdentifier>{ebadafbe-0185-4483-8a69-4e96ddb9bab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\game\entity\enemy">
+      <UniqueIdentifier>{4138f270-862d-4db1-91c3-6eef4c74dc07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Var2">
+      <UniqueIdentifier>{d3920e21-a19c-47a0-bfd0-87dd6042d844}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\WinMain.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="src\CheckInput.cpp">
+      <Filter>File\input</Filter>
     </ClCompile>
     <ClCompile Include="src\Game.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>File\main</Filter>
     </ClCompile>
-    <ClCompile Include="src\CheckInput.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="src\WinMain.cpp">
+      <Filter>File\main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy.cpp">
+      <Filter>File\game\entity\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Obj.cpp">
+      <Filter>File\game\entity\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>File\game\entity\player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\WinMain.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="src\CheckInput.h">
+      <Filter>File\input</Filter>
     </ClInclude>
     <ClInclude Include="src\Game.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>File\main</Filter>
     </ClInclude>
-    <ClInclude Include="src\CheckInput.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="src\WinMain.h">
+      <Filter>File\main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Player.h">
+      <Filter>File\game\entity\player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Obj.h">
+      <Filter>File\game\entity\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enemy.h">
+      <Filter>File\game\entity\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EntityBase.h">
+      <Filter>File\game\base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Var2.h">
+      <Filter>File\Var2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharaBase.h">
+      <Filter>File\game\base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
