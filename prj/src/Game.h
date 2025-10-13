@@ -5,24 +5,16 @@
 #include "CheckInput.h"
 #include "WinMain.h"
 
-/// <summary>
-/// ゲーム関係
-/// </summary>
+// ゲーム関係
 class Game
 {
-	/// <summary>
-	/// 入力処理関数
-	/// </summary>
+	// 入力処理関数
 	void input();
 
-	/// <summary>
-	/// 画面更新関数
-	/// </summary>
+	// 画面更新関数
 	void render();
 
-	/// <summary>
-	/// 音声再生処理関数
-	/// </summary>
+	// 音声再生処理関数
 	void sound();
 
 	Game() {}
@@ -32,30 +24,20 @@ public:
 	Game(const Game&) = delete;
 	Game& operator=(const Game&) = delete;
 
-	/// <summary>
-	/// インスタンスを返す
-	/// </summary>
-	/// <returns></returns>
+	// インスタンスを返す
 	static Game& GetInstance()
 	{
 		static Game instance;
 		return instance;
 	}
 
-	/// <summary>
-	/// 初期化関数
-	/// </summary>
-	/// <returns><成功:true, 失敗:false/returns>
+	// 初期化関数
 	bool Init();
 
-	/// <summary>
-	/// 更新関数
-	/// </summary>
+	// 更新関数
 	void Loop();
 
-	/// <summary>
-	/// 終了関数
-	/// </summary>
+	// 終了関数
 	void End();
 
 	virtual ~Game()

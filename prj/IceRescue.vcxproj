@@ -146,15 +146,23 @@
     <ClCompile Include="src\CheckInput.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameScene.cpp" />
     <ClCompile Include="src\Obj.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Shark.cpp" />
+    <ClCompile Include="src\Squid.cpp" />
     <ClCompile Include="src\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CharaBase.h" />
     <ClInclude Include="src\CheckInput.h" />
+    <ClInclude Include="src\Clownfish.h" />
+    <ClInclude Include="src\Squid.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\EntityBase.h" />
+    <ClInclude Include="src\GameScene.h" />
+    <ClInclude Include="src\Shark.h" />
+    <ClInclude Include="src\Turtle.h" />
     <ClInclude Include="src\Var2.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Obj.h" />

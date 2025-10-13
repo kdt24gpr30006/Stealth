@@ -74,7 +74,6 @@ void Game::Loop()
 		//  音声再生処理
 		this->sound();
 
-
 		// リフレッシュレートが一定になるまで待つ処理
 		while (clock() < check_fps) {}
 
