@@ -7,7 +7,7 @@ protected:
 	bool isturn;	// ”½“]‚µ‚Ä‚¢‚é‚©
 public:
 	CharaBase() : isturn(false) {}
-	virtual ~CharaBase() = 0;
+	virtual ~CharaBase() {};
 
 	// ”½“]‚ÌƒZƒbƒg
 	void SetIsTurn(bool turn) {

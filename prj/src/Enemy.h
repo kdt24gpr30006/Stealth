@@ -1,11 +1,10 @@
 #pragma once
 #include "CharaBase.h"
-#include <map>
 #include "WinMain.h"
+#include <map>
 
 class Enemy final : public CharaBase
 {
-
 public:
 	Enemy()
 	{
@@ -20,7 +19,7 @@ public:
 	}
 	~Enemy() {}
 	// “®‚«
-	void Move() override;
+	void Update() override;
 	// •`‰æ
 	void Render() override;
 };

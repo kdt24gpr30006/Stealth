@@ -2,14 +2,16 @@
 
 void Game::input()
 {
+	// キー入力状態の更新
+	inputKey.Update();
 }
 
-void Game::render()
+void Game::GameLoop()
 {
-}
-
-void Game::sound()
-{
+	// ゲームシーンの更新
+	gameScene.Update();
+	// ゲームシーンの描画
+	gameScene.Render();
 }
 
 bool Game::Init()
@@ -44,6 +46,9 @@ bool Game::Init()
 		return false;						// エラーが起きたら直ちに終了
 	}
 
+	// ゲームシーンの初期化
+	gameScene.Init();
+
 	return true;
 }
 
@@ -63,16 +68,11 @@ void Game::Loop()
 		// 画面上の描画を初期化（画面を消去）
 		ClearDrawScreen();
 
-
 		//  入力処理
 		this->input();
 
-		//  画面描画処理
-		this->render();
-
-
-		//  音声再生処理
-		this->sound();
+		//  ゲームのループ処理
+		this->GameLoop();
 
 		// リフレッシュレートが一定になるまで待つ処理
 		while (clock() < check_fps) {}

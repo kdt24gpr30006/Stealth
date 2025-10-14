@@ -4,18 +4,21 @@
 #include "DxLib.h"		// DxLib
 #include "CheckInput.h"
 #include "WinMain.h"
+#include "GameScene.h"
 
 // ゲーム関係
 class Game
 {
+	// ゲームシーン
+	GameScene& gameScene = GameScene::GetInstance();
+	// インプット
+	CheckInputKey& inputKey = CheckInputKey::GetInstance();
+
 	// 入力処理関数
 	void input();
 
 	// 画面更新関数
-	void render();
-
-	// 音声再生処理関数
-	void sound();
+	void GameLoop();
 
 	Game() {}
 public:

@@ -12,10 +12,10 @@ protected:
 public:
 
 	EntityBase() : radius(0), imageHandle(-1) {}
-	virtual ~EntityBase() = 0;
+	virtual ~EntityBase() {};
 
-	// “®‚«
-	virtual void Move() = 0;
+	// XV
+	virtual void Update() = 0;
 	// •`‰æ
 	virtual void Render() = 0;
 };

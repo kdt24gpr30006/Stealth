@@ -28,6 +28,8 @@ public:
 		return instance;
 	}
 
+	// ‰Šú‰»ˆ—
+	void Init();
 	// XVˆ—
 	void Update();
 	// •`‰æˆ—

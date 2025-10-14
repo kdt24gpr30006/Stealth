@@ -11,7 +11,7 @@ public:
 	}
 	~Shark() {}
 	// “®‚«
-	void Move() override;
+	void Update() override;
 	// •`‰æ
 	void Render() override;
 };

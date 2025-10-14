@@ -3,33 +3,53 @@
 void CheckInputKey::Update()
 {
 	// 全てのキーの入力状態を得る
-	GetHitKeyStateAll(Key_buffer);
+	GetHitKeyStateAll(keyBuffer);
 	for (int i = 0; i < KEY_NUM; i++)
 	{
-		if (Key_buffer[i] != 0)
+		if (keyBuffer[i] != 0)
 		{
 			// コードに対応するキーが押されていたら増やす
-			key_push_fream[i]++;
+			keyPushFream[i]++;
 		}
 		else
 		{
-			if (key_push_fream[i] > 0)
+			if (keyPushFream[i] > 0)
 			{
 				// 離された瞬間だけ-1にする
-				key_push_fream[i] = -1;
+				keyPushFream[i] = -1;
 			}
 			else
 			{
 				// 押されていなければ0にする
-				key_push_fream[i] = 0;
+				keyPushFream[i] = 0;
 			}
 		}
+	}
+
+	// 左クリックの入力状態を得る
+	if (GetMouseInput() & MOUSE_INPUT_LEFT)
+	{
+		mouseLeftFream++;
+	}
+	else
+	{
+		mouseLeftFream = 0;
+	}
+
+	// 右クリックの入力状態を得る
+	if (GetMouseInput() & MOUSE_INPUT_RIGHT)
+	{
+		mouseRightFream++;
+	}
+	else
+	{
+		mouseRightFream = 0;
 	}
 }
 
 bool CheckInputKey::PushHitKey(int key)
 {
-	if (key_push_fream[key] == 1)
+	if (keyPushFream[key] == 1)
 	{
 		return true;
 	}
@@ -38,9 +58,47 @@ bool CheckInputKey::PushHitKey(int key)
 
 bool CheckInputKey::ReleaseHitKey(int key)
 {
-	if (key_push_fream[key] == -1)
+	if (keyPushFream[key] == -1)
 	{
 		return true;
+	}
+	return false;
+}
+
+bool CheckInputKey::PushMouseInput(int button)
+{
+	if (button & MOUSE_INPUT_LEFT)
+	{
+		if (mouseLeftFream == 1)
+		{
+			return true;
+		}
+	}
+	if (button & MOUSE_INPUT_RIGHT)
+	{
+		if (mouseRightFream == 1)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool CheckInputKey::ReleaseMouseInput(int button)
+{
+	if (button & MOUSE_INPUT_LEFT)
+	{
+		if (mouseLeftFream == -1)
+		{
+			return true;
+		}
+	}
+	if (button & MOUSE_INPUT_RIGHT)
+	{
+		if (mouseRightFream == -1)
+		{
+			return true;
+		}
 	}
 	return false;
 }
