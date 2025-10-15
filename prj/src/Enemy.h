@@ -8,8 +8,6 @@ class Enemy final : public CharaBase
 public:
 	Enemy()
 	{
-		// ‰æ‘œ‚Ì“Ç‚İ‚İ
-		imageHandle = LoadGraph("data/enemy.png");
 		// À•W‚Ì‰Šú‰»
 		pos.Set(WINDOW_W / 2.0f, WINDOW_H / 2.0f);
 		// ‘¬“x‚Ì‰Šú‰»

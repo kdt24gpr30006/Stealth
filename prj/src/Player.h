@@ -1,13 +1,25 @@
 #pragma once
 #include "CharaBase.h"
+#include <string>
+
+
+enum PlayerState
+{
+	IDLE,
+	MOVE,
+	CARRY,
+	MAX,
+};
 
 class Player final : public CharaBase
 {
-	int invTime = 0;		// –³“GŠÔ
-	bool isHave = false;	// ‚Á‚Ä‚¢‚é‚©
+	int invTime = 0;			// –³“GŠÔ
+	bool isHave = false;		// ‚Á‚Ä‚¢‚é‚©
+	PlayerState state = MOVE;	// ó‘Ô
+	int imageAngle = 0;			// ‰æ‘œ‚ÌŠp“x
 
 	// –³“G‚©‚Ç‚¤‚©
-	bool IsInv();	
+	bool IsInv();
 
 	// –³“GŠÔ‚ÌŠÔ“_–Å
 	void InvRender();
@@ -15,22 +27,23 @@ class Player final : public CharaBase
 	// “®‚«
 	void Move();
 
+	// ‰æ‘œŠp“x‚ÌXV
+	void UpdateAngle();
+
 public:
 
 	int score = 0;		// ƒXƒRƒA
 
-	Player()
-	{
-		pos.Set(400.0f, 300.0f);
-		velocity.Set(0.0f, 0.0f);
-		radius = 32;
-	}
+	Player();
 	~Player() override {
 
 	}
 
 	// UŒ‚‚ğH‚ç‚¤
 	void HitDamage();
+
+	// •ó” ‚ğE‚¤
+	void PickUp();
 
 	// •ó” ‚Ì‚ÂˆÊ’u‚ğ•Ô‚·
 	Var2<float> GetHavePos();

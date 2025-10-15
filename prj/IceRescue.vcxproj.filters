@@ -32,9 +32,6 @@
     <Filter Include="File\game\entity\enemy">
       <UniqueIdentifier>{4138f270-862d-4db1-91c3-6eef4c74dc07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File\Var2">
-      <UniqueIdentifier>{d3920e21-a19c-47a0-bfd0-87dd6042d844}</UniqueIdentifier>
-    </Filter>
     <Filter Include="File\scene">
       <UniqueIdentifier>{88a69f3b-49a3-4716-b5e8-e18064c7e9e0}</UniqueIdentifier>
     </Filter>
@@ -43,6 +40,12 @@
     </Filter>
     <Filter Include="File\game\entity\enemy\EnemyType">
       <UniqueIdentifier>{5ae35576-9562-4229-a763-53d22b98113a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Field">
+      <UniqueIdentifier>{8f19b128-7000-4fa2-b19b-a93a0bcc8c28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Field\Var2">
+      <UniqueIdentifier>{d3920e21-a19c-47a0-bfd0-87dd6042d844}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +97,7 @@
       <Filter>File\game\base</Filter>
     </ClInclude>
     <ClInclude Include="src\Var2.h">
-      <Filter>File\Var2</Filter>
+      <Filter>File\Field\Var2</Filter>
     </ClInclude>
     <ClInclude Include="src\CharaBase.h">
       <Filter>File\game\base</Filter>
@@ -116,6 +119,9 @@
     </ClInclude>
     <ClInclude Include="src\Turtle.h">
       <Filter>File\game\entity\obj\ObjType</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Image.h">
+      <Filter>File\Field</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

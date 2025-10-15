@@ -157,6 +157,7 @@
     <ClInclude Include="src\CharaBase.h" />
     <ClInclude Include="src\CheckInput.h" />
     <ClInclude Include="src\Clownfish.h" />
+    <ClInclude Include="src\Image.h" />
     <ClInclude Include="src\Squid.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\EntityBase.h" />

@@ -6,8 +6,6 @@ class Squid final : public CharaBase
 public:
 	Squid()
 	{
-		// ‰æ‘œ‚Ì“Ç‚İ‚İ
-		imageHandle = LoadGraph("");
 	}
 	~Squid() {}
 	// “®‚«

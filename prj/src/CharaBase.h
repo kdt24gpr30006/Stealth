@@ -4,13 +4,14 @@
 class CharaBase : public EntityBase
 {
 protected:
-	bool isturn;	// ”½“]‚µ‚Ä‚¢‚é‚©
+	bool isTurn;	// ”½“]‚µ‚Ä‚¢‚é‚©
+	float moveSpeed; // ˆÚ“®‘¬“x
 public:
-	CharaBase() : isturn(false) {}
+	CharaBase() : isTurn(false), moveSpeed( 0 ) {}
 	virtual ~CharaBase() {};
 
 	// ”½“]‚ÌƒZƒbƒg
-	void SetIsTurn(bool turn) {
-		isturn = turn;
+	void SetisTurn(bool turn) {
+		isTurn = turn;
 	}
 };
