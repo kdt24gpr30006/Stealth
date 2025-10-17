@@ -3,7 +3,7 @@
 #include "WinMain.h"
 #include <map>
 
-class Enemy final : public CharaBase
+class Enemy : public CharaBase
 {
 public:
 	Enemy()
@@ -17,7 +17,7 @@ public:
 	}
 	~Enemy() {}
 	// “®‚«
-	void Update() override;
+	virtual void Update() = 0;
 	// •`‰æ
-	void Render() override;
+	virtual void Render() = 0;
 };

@@ -58,9 +58,6 @@
     <ClCompile Include="src\WinMain.cpp">
       <Filter>File\main</Filter>
     </ClCompile>
-    <ClCompile Include="src\Enemy.cpp">
-      <Filter>File\game\entity\enemy</Filter>
-    </ClCompile>
     <ClCompile Include="src\Player.cpp">
       <Filter>File\game\entity\player</Filter>
     </ClCompile>

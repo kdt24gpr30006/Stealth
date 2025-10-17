@@ -1,7 +1,7 @@
 #pragma once
-#include "CharaBase.h"
+#include "Enemy.h"
 
-class Shark final : public CharaBase
+class Shark final : public Enemy
 {
 public:
 	Shark()

@@ -1,5 +1,13 @@
 #include "Player.h"
 #include "CheckInput.h"
+#include <map>
+
+std::map<PlayerState, float> PlayerImageSize = {
+	{IDLE, 0.4f},
+	{MOVE, 0.4f},
+	{CARRY, 0.4f},
+};
+
 
 template<typename T>
 float TO_RAD(T degree)
