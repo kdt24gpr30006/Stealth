@@ -11,46 +11,31 @@
     <Filter Include="File\main">
       <UniqueIdentifier>{d26558a4-ba41-4951-87a7-2816a90e91de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File\game">
-      <UniqueIdentifier>{f70ad42b-3d11-485d-90e1-565df443c4df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="File\input">
-      <UniqueIdentifier>{93e4df91-0097-4b53-bffb-28132fb75ae1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="File\game\base">
-      <UniqueIdentifier>{7674d805-c874-485d-8c7c-59af6e051261}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="File\game\entity">
-      <UniqueIdentifier>{694c5a00-50c9-49e3-9777-91087ccac7fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="File\game\entity\player">
-      <UniqueIdentifier>{5434cb9f-c4c2-40fd-b546-fe9b07ee360a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="File\game\entity\obj">
-      <UniqueIdentifier>{ebadafbe-0185-4483-8a69-4e96ddb9bab0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="File\game\entity\enemy">
-      <UniqueIdentifier>{4138f270-862d-4db1-91c3-6eef4c74dc07}</UniqueIdentifier>
-    </Filter>
     <Filter Include="File\scene">
       <UniqueIdentifier>{88a69f3b-49a3-4716-b5e8-e18064c7e9e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File\game\entity\obj\ObjType">
-      <UniqueIdentifier>{ceab2216-1210-4389-b7d9-72c7993d6ca6}</UniqueIdentifier>
+    <Filter Include="リソース ファイル\out_game">
+      <UniqueIdentifier>{14703e1e-061b-49e2-b14e-a8d8cf6f453a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File\game\entity\enemy\EnemyType">
-      <UniqueIdentifier>{5ae35576-9562-4229-a763-53d22b98113a}</UniqueIdentifier>
+    <Filter Include="リソース ファイル\out_game\input">
+      <UniqueIdentifier>{93e4df91-0097-4b53-bffb-28132fb75ae1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File\Field">
+    <Filter Include="リソース ファイル\out_game\Field">
       <UniqueIdentifier>{8f19b128-7000-4fa2-b19b-a93a0bcc8c28}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File\Field\Var2">
-      <UniqueIdentifier>{d3920e21-a19c-47a0-bfd0-87dd6042d844}</UniqueIdentifier>
+    <Filter Include="File\entity">
+      <UniqueIdentifier>{694c5a00-50c9-49e3-9777-91087ccac7fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\entity\player">
+      <UniqueIdentifier>{5434cb9f-c4c2-40fd-b546-fe9b07ee360a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\entity\enemy">
+      <UniqueIdentifier>{4138f270-862d-4db1-91c3-6eef4c74dc07}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CheckInput.cpp">
-      <Filter>File\input</Filter>
+      <Filter>リソース ファイル\out_game\input</Filter>
     </ClCompile>
     <ClCompile Include="src\Game.cpp">
       <Filter>File\main</Filter>
@@ -59,24 +44,18 @@
       <Filter>File\main</Filter>
     </ClCompile>
     <ClCompile Include="src\Player.cpp">
-      <Filter>File\game\entity\player</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Obj.cpp">
-      <Filter>File\game\entity\obj</Filter>
+      <Filter>File\entity\player</Filter>
     </ClCompile>
     <ClCompile Include="src\GameScene.cpp">
       <Filter>File\scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Squid.cpp">
-      <Filter>File\game\entity\enemy\EnemyType</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Shark.cpp">
-      <Filter>File\game\entity\enemy\EnemyType</Filter>
+    <ClCompile Include="src\Enemy.cpp">
+      <Filter>File\entity\enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CheckInput.h">
-      <Filter>File\input</Filter>
+      <Filter>リソース ファイル\out_game\input</Filter>
     </ClInclude>
     <ClInclude Include="src\Game.h">
       <Filter>File\main</Filter>
@@ -85,40 +64,19 @@
       <Filter>File\main</Filter>
     </ClInclude>
     <ClInclude Include="src\Player.h">
-      <Filter>File\game\entity\player</Filter>
+      <Filter>File\entity\player</Filter>
     </ClInclude>
     <ClInclude Include="src\Enemy.h">
-      <Filter>File\game\entity\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EntityBase.h">
-      <Filter>File\game\base</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Var2.h">
-      <Filter>File\Field\Var2</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CharaBase.h">
-      <Filter>File\game\base</Filter>
+      <Filter>File\entity\enemy</Filter>
     </ClInclude>
     <ClInclude Include="src\GameScene.h">
       <Filter>File\scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\Obj.h">
-      <Filter>File\game\entity\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Shark.h">
-      <Filter>File\game\entity\enemy\EnemyType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Squid.h">
-      <Filter>File\game\entity\enemy\EnemyType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clownfish.h">
-      <Filter>File\game\entity\obj\ObjType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Turtle.h">
-      <Filter>File\game\entity\obj\ObjType</Filter>
-    </ClInclude>
     <ClInclude Include="src\Image.h">
-      <Filter>File\Field</Filter>
+      <Filter>リソース ファイル\out_game\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vec2.h">
+      <Filter>リソース ファイル\out_game\Field</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

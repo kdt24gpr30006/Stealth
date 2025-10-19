@@ -1,56 +1,24 @@
 #pragma once
-#include "CharaBase.h"
-#include <string>
+#include "Vec2.h"
 
-
-enum PlayerState
+class Player
 {
-	IDLE,
-	MOVE,
-	CARRY,
-	MAX,
-};
-
-class Player final : public CharaBase
-{
-	int invTime = 0;			// 無敵時間
-	bool isHave = false;		// 持っているか
-	PlayerState state = MOVE;	// 状態
-	int imageAngle = 0;			// 画像の角度
-
-	// 無敵かどうか
-	bool IsInv();
-
-	// 無敵時間の間点滅
-	void InvRender();
-
-	// 動き
-	void Move();
-
-	// 画像角度の更新
-	void UpdateAngle();
-
+	Vec2<float> pos;       // 座標
+	float moveSpeed;       // 
 public:
 
-	int score = 0;		// スコア
-
+	// コンストラクタ
 	Player();
-	~Player() override {
 
-	}
+	// 座標取得
+	Vec2<float> GetPos() const { return pos; }
 
-	// 攻撃を食らう
-	void HitDamage();
-
-	// 宝箱を拾う
-	void PickUp();
-
-	// 宝箱の持つ位置を返す
-	Var2<float> GetHavePos();
+	// 動き
+	void Move(float deltaTime);
 
 	// 更新
-	void Update() override;
+	void Update(float deltaTime);
 
 	// 描画
-	void Render() override;
+	void Render() const;
 };

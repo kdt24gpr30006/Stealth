@@ -5,20 +5,20 @@
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_  HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd)
 {
 
-	// 初期化処理
-	Game::GetInstance().Init();
+	Game& game = Game::GetInstance(); // シングルトンインスタンス生成
 
-	// Init()がfalseで帰ってきたらその時点で終了
-	if (Game::GetInstance().Init() == false)
+	// 初期化処理
+	if (game.Init() == false)
 	{
+		// Init()がfalseで帰ってきたらその時点で終了
 		return -1;
 	}
 
 	// ゲームループ
-	Game::GetInstance().Loop();
+	game.Loop();
 
 	// 終了処理
-	Game::GetInstance().End();
+	game.End();
 
 
 	// ソフトの終了

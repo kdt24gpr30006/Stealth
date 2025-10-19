@@ -42,9 +42,4 @@ public:
 
 	// I—¹ŠÖ”
 	void End();
-
-	virtual ~Game()
-	{
-
-	}
 };

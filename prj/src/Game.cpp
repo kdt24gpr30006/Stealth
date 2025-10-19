@@ -54,7 +54,7 @@ bool Game::Init()
 
 void Game::Loop()
 {
-	while (ProcessMessage() == 0)
+	while (ProcessMessage() == 0 && !CheckHitKey(KEY_INPUT_ESCAPE))
 	{
 		// リフレッシュレートを設定するための処理
 		clock_t check_fps = clock() + CLOCKS_PER_SEC / 60;

@@ -1,23 +1,27 @@
 #pragma once
-#include "CharaBase.h"
-#include "WinMain.h"
-#include <map>
+#include "Vec2.h"
+#include "Player.h"
+#include <cmath>
+#include <memory>
 
-class Enemy : public CharaBase
+class Enemy
 {
+	Vec2<float> pos;    // 座標
+	float angle;		// 向き（度）
+	float fov;			// 視野角
+	float dist;			// 視界距離(px)
+	float moveSpeed;	// 移動速度
+
+	// 前方向をベクトルに変換
+	Vec2<float> Forward() const;
+
 public:
-	Enemy()
-	{
-		// 座標の初期化
-		pos.Set(WINDOW_W / 2.0f, WINDOW_H / 2.0f);
-		// 速度の初期化
-		velocity.Set(0.0f, 0.0f);
-		// 半径の初期化
-		radius = 32;
-	}
-	~Enemy() {}
-	// 動き
-	virtual void Update() = 0;
+
+	Enemy(const Vec2<float>& startPos, float argAngle, float argFov, float argDist, float argSpeed);
+	// プレイヤーが見えているか
+	bool CanSeePlayer(const std::shared_ptr<Player> player) const;
+	// 更新
+	void Update(float totalTime);
 	// 描画
-	virtual void Render() = 0;
+	void Draw(bool detected) const;
 };
