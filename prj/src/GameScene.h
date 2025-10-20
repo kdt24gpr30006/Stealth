@@ -12,6 +12,9 @@ class GameScene
 	// 敵キャラクター
 	std::vector<std::shared_ptr<Enemy>> enemy;
 
+	// 敵の視界画像
+	int enemySearchImage;	
+
 	// 時間計測用クロック
 	using Clock = std::chrono::steady_clock;
 	// 前フレームの時刻
@@ -21,9 +24,21 @@ class GameScene
 	// 総経過時間
 	float  totalTime;
 
+	// 敵の情報読み込み
+	void LoadEnemies();
+
 	// コンストラクタ
-	GameScene() :prevTime(Clock::now()), deltaTime(0.0f), totalTime(0.0f) {}
-	~GameScene() {}
+	GameScene() :
+		prevTime(Clock::now()), deltaTime(0.0f), totalTime(0.0f), enemySearchImage(-1){}
+	~GameScene() 
+	{
+		// 画像の解放
+		if (enemySearchImage != -1)
+		{
+			DeleteGraph(enemySearchImage);
+			enemySearchImage = -1;
+		}
+	}
 
 public:
 

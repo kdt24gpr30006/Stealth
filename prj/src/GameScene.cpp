@@ -1,13 +1,29 @@
 #include "GameScene.h"
 #include "DxLib.h"
 #include "WinMain.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+
+void GameScene::LoadEnemies()
+{
+	std::ifstream file("data/enemy/csv/Init.csv");
+}
 
 void GameScene::Init()
 {
 	// インスタンス作成
 	player = std::make_shared<Player>();
+	
+	// csvファイルから敵の初期化
+	//enemy.emplace_back(std::make_shared<Enemy>();
+	
 	enemy.emplace_back(std::make_shared<Enemy>(Vec2<float>(static_cast<float>(WINDOW_W / 2 - 100), 200.0f), 0.0f, 50.0f, 100.0f, 4.0f));
-	enemy.emplace_back(std::make_shared<Enemy>(Vec2<float>(static_cast<float>(WINDOW_W / 2 + 100), 400.0f), 90.0f, 30.0f, 100.0f, 4.0f));
+
+
+	// 敵の視界画像読み込み
+	enemySearchImage = LoadGraph("data/enemy/search.png");
 }
 
 void GameScene::Update()
@@ -28,6 +44,13 @@ void GameScene::Update()
 	for (auto& e : enemy)
 	{
 		e->Update(totalTime);
+
+		// プレイヤーが見えているか
+		if(e->CanSeePlayer(player))
+		{
+			// 見えていたらコンソールに表示
+			printfDx("Player Spotted!\n");
+		}
 	}
 }
 
@@ -37,8 +60,6 @@ void GameScene::Render()
 	player->Render();
 	for (auto& e : enemy)
 	{
-		// プレイヤーが見えているか
-		bool detected = e->CanSeePlayer(player);
-		e->Draw(detected);
+		e->Draw(&enemySearchImage);
 	}
 }

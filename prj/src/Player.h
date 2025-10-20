@@ -4,7 +4,8 @@
 class Player
 {
 	Vec2<float> pos;       // 座標
-	float moveSpeed;       // 
+	float moveSpeed;       // 移動速度
+
 public:
 
 	// コンストラクタ
