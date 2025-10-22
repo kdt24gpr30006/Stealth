@@ -29,8 +29,7 @@ std::vector<std::shared_ptr<Enemy>> GameScene::LoadEnemyInfo()
         std::stringstream lineStream(line);
         std::string cell;
 
-        float x, y, angle, fov, speed;
-        double dist;
+        float x, y, r, angle, fov, dist, speed;
 
         // CSVの各カラムを読み込む
         // X座標
@@ -40,6 +39,9 @@ std::vector<std::shared_ptr<Enemy>> GameScene::LoadEnemyInfo()
         // Y座標
         std::getline(lineStream, cell, ',');
         y = std::stof(cell);
+
+        std::getline(lineStream, cell, ',');
+        r = std::stof(cell);
 
         // 角度
         std::getline(lineStream, cell, ',');
@@ -58,7 +60,7 @@ std::vector<std::shared_ptr<Enemy>> GameScene::LoadEnemyInfo()
         speed = std::stof(cell);
 
         // 敵キャラクターを作成
-        auto enemy = std::make_shared<Enemy>(Vec2<float>(x, y), angle, fov, dist, speed);
+        auto enemy = std::make_shared<Enemy>(Vec2<float>(x, y), r, angle, fov, dist, speed);
 
         // 巡回経路の設定
         while (std::getline(lineStream, cell, ','))
@@ -106,10 +108,10 @@ void GameScene::Update()
 	totalTime += deltaTime;
 
 	// 更新処理
-	player->Update((float)deltaTime);
+	player->Update(deltaTime);
 	for (auto& enemy : enemies)
 	{
-		enemy->Update(totalTime);
+		enemy->Update(deltaTime);
 
 		// プレイヤーが見えているか
 		if(enemy->CanSeePlayer(player))

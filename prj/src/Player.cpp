@@ -4,7 +4,8 @@
 Player::Player()
 {
 	pos.Set(static_cast<float>(WINDOW_W / 2), 600.0f);
-	moveSpeed = 100.0f;
+	r = 10.0f;
+	moveSpeed = 200.0f;
 }
 
 void Player::Move(float deltaTime)
@@ -46,5 +47,5 @@ void Player::Update(float deltaTime)
 
 void Player::Render() const
 {
-	DrawCircle((int)pos.x, (int)pos.y, 8, GetColor(0, 0, 255), TRUE);
+	DrawCircleAA(pos.x, pos.y, r, 32, GetColor(0, 0, 255), TRUE);
 }

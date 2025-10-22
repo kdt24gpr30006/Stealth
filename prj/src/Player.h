@@ -3,10 +3,13 @@
 
 class Player
 {
-	Vec2<float> pos;       // 座標
-	float moveSpeed;       // 移動速度
+	Vec2<float> pos;	// 座標
+	float r;			// 半径
+	float moveSpeed;	// 移動速度
 
 public:
+
+	float GetRadius() { return r; }
 
 	// コンストラクタ
 	Player();
