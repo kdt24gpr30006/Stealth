@@ -14,12 +14,6 @@ static float ToDeg(float radian)
 	return radian * 180.0f / static_cast<float>(DX_PI);
 }
 
-Enemy::Enemy(const Vec2<float>& startPos, float argAngle, float argFov, float argDist, float argSpeed)
-	: pos(startPos), fov(argFov), dist(argDist), moveSpeed(argSpeed)
-{
-	angle = argAngle;
-}
-
 void Enemy::SetPatrolRoute(const Vec2<float> route)
 {
 	patrolRoute.emplace_back(route);
@@ -51,12 +45,6 @@ bool Enemy::CanSeePlayer(const std::shared_ptr<Player> player) const
 
 void Enemy::Update(float totalTime)
 {
-	// ŽñU‚èƒAƒjƒ[ƒVƒ‡ƒ“
-	angle += 10.0f;
-	if (angle >= 360.0f)
-	{
-		angle = angle - 360.0f;
-	}
 }
 
 void Enemy::Draw(int* image) const
@@ -64,11 +52,8 @@ void Enemy::Draw(int* image) const
 	// –{‘Ì•`‰æ
 	DrawCircleAA(pos.x, pos.y, 12, 32, GetColor(255, 0, 0), TRUE);
 
-	// ”»’è‹——£
-	DrawCircleAA(pos.x, pos.y, dist, 32, GetColor(255, 255, 255), false);
-
 	// Ž‹ŠE‰æ‘œ•`‰æ
 	double lastAngle = static_cast<double>((angle + fov * 0.5f) / 360.0f * 100.0f);
 	double startAngle = static_cast<double>((angle - fov * 0.5f) / 360.0f * 100.0f);
-	DrawCircleGaugeF(pos.x, pos.y, lastAngle, *image, startAngle, TRUE);
+	DrawCircleGaugeF(pos.x, pos.y, lastAngle, *image, startAngle, dist);
 }

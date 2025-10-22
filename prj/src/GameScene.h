@@ -10,7 +10,7 @@ class GameScene
 	// プレイヤー
 	std::shared_ptr<Player> player;
 	// 敵キャラクター
-	std::vector<std::shared_ptr<Enemy>> enemy;
+	std::vector<std::shared_ptr<Enemy>> enemies;
 
 	// 敵の視界画像
 	int enemySearchImage;	
@@ -24,8 +24,8 @@ class GameScene
 	// 総経過時間
 	float  totalTime;
 
-	// 敵の情報読み込み
-	void LoadEnemies();
+	// 敵の情報をcsvから読み込み
+	std::vector<std::shared_ptr<Enemy>> LoadEnemyInfo();
 
 	// コンストラクタ
 	GameScene() :
