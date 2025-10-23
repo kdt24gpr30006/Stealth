@@ -15,3 +15,5 @@
 *.VC.db
 *.opendb
 *.zip
+/prj/Stealth/x64
+/prj/x64/Release

@@ -32,7 +32,7 @@ bool Game::Init()
 	SetGraphMode(WINDOW_W, WINDOW_H, 32);
 
 	// ウィンドウのタイトル
-	SetMainWindowText("救え！こおりの仲間たち");
+	SetMainWindowText("Don't Get Seen"); // 見つかるな
 
 	// 背景色の設定
 	SetBackgroundColor(128, 128, 128);

@@ -14,6 +14,8 @@ class Enemy
 	float dist;			// 視界距離
 	float moveSpeed;	// 移動速度
 
+	int nextPosIndex = 0; // 次の巡回地点のインデックス
+
 	std::vector<Vec2<float>> patrolRoute;	// 巡回経路
 
 	// 前方向をベクトルに変換

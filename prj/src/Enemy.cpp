@@ -39,7 +39,7 @@ bool Enemy::CanSeePlayer(const std::shared_ptr<Player> player) const
 	// 角度を調べる
 	Vec2<float> toPlayerN = toPlayer.Normalize();
 	// 視野角の半分の余弦値を計算
-	float cosThresh = std::cos(ToRad(fov) * 0.5);
+	float cosThresh = std::cos(ToRad(fov) * 0.5f);
 	// 内積を計算
 	float dp = toPlayerN.Dot(Forward());
 	// 視野角内なら見える
@@ -48,6 +48,38 @@ bool Enemy::CanSeePlayer(const std::shared_ptr<Player> player) const
 
 void Enemy::Update(float deltaTime)
 {
+	// 巡回経路が設定されていなければ何もしない
+	if (patrolRoute.empty())
+		return;
+
+	// 次の巡回地点を取得
+	Vec2<float> targetPos = patrolRoute[nextPosIndex];
+
+	// 目的地へのベクトルを計算
+	Vec2<float> toTarget = targetPos - pos;
+	// 目的地までの距離を求める
+	float distanceToTarget = toTarget.GetLength();
+
+	// 目的地までの距離と移動距離を比較
+	if (distanceToTarget < moveSpeed * deltaTime)
+	{
+		// 着いていたら
+
+		// 次の巡回地点へ移動
+		pos = targetPos;
+		nextPosIndex = (nextPosIndex + 1) % patrolRoute.size();
+	}
+	else
+	{
+		// 着いていなかったら
+
+		// 次の巡回地点に向かって移動
+		Vec2<float> direction = toTarget.Normalize();
+		pos += direction * moveSpeed * deltaTime;
+
+		// 角度を更新
+		angle = ToDeg(std::atan2(direction.y, direction.x));
+	}
 }
 
 void Enemy::Draw(int* image) const
@@ -73,4 +105,14 @@ void Enemy::Draw(int* image) const
 
 	// 扇形の描画
 	DrawCircleGaugeF(pos.x, pos.y, endPercent, *image, startPercent, scale);
+
+#if _DEBUG
+	// 巡回経路の線を描画
+	for (size_t i = 0; i < patrolRoute.size(); ++i)
+	{
+		Vec2<float> from = patrolRoute[i];
+		Vec2<float> to = patrolRoute[(i + 1) % patrolRoute.size()];
+		DrawLineAA(from.x, from.y, to.x, to.y, GetColor(0, 255, 0));
+	}
+#endif // _DEBUG
 }
