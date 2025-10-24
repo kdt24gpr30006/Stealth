@@ -128,6 +128,6 @@ void GameScene::Render()
 	player->Render();
 	for (auto& enemy : enemies)
 	{
-		enemy->Draw(&enemySearchImage);
+		enemy->Render(&enemySearchImage);
 	}
 }

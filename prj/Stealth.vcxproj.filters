@@ -32,6 +32,9 @@
     <Filter Include="File\entity\enemy">
       <UniqueIdentifier>{4138f270-862d-4db1-91c3-6eef4c74dc07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="File\entity\element">
+      <UniqueIdentifier>{851fef52-4a27-4743-8fe3-6cdc7538b350}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CheckInput.cpp">
@@ -77,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="src\Vec2.h">
       <Filter>リソース ファイル\out_game\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Element.h">
+      <Filter>File\entity\element</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

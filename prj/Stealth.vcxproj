@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CheckInput.h" />
+    <ClInclude Include="src\Element.h" />
     <ClInclude Include="src\Image.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\GameScene.h" />

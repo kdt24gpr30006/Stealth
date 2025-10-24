@@ -82,7 +82,7 @@ void Enemy::Update(float deltaTime)
 	}
 }
 
-void Enemy::Draw(int* image) const
+void Enemy::Render(int* image) const
 {
 	// –{‘Ì•`‰æ
 	DrawCircleAA(pos.x, pos.y, 12, 32, GetColor(255, 0, 0), TRUE);
@@ -97,14 +97,15 @@ void Enemy::Draw(int* image) const
 	float endAngle = angle + fov / 2 + ANGLE_OFFSET;    // ‹–ìŠp‚ÌI—¹Šp“x
 
 	// ‹‚ß‚½Šp“x‚ğ%‚É•ÏŠ·‚·‚é
-	double startPercent = startAngle / 360.0 * 100.0; 
-	double endPercent = endAngle / 360.0 * 100.0;     
+	float startPercent = startAngle / 360.0f * 100.0f;
+	float endPercent = endAngle / 360.0f * 100.0f;
 
 	// ‰æ‘œ‚ÌƒXƒP[ƒ‹(‹ŠE‹——£‚É‡‚í‚¹‚é‚æ‚¤‚É)
-	const double scale = dist / 100 * 0.8;
+	float scale = dist / 100.0f * 0.8f;
 
 	// îŒ`‚Ì•`‰æ
-	DrawCircleGaugeF(pos.x, pos.y, endPercent, *image, startPercent, scale);
+	DrawCircleGaugeF(pos.x, pos.y, static_cast<double>(endPercent), *image, 
+		static_cast<double>(startPercent), static_cast<double>(scale));
 
 #if _DEBUG
 	// „‰ñŒo˜H‚Ìü‚ğ•`‰æ

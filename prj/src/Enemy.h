@@ -35,6 +35,6 @@ public:
 	// XV
 	void Update(float deltaTime);
 	// •`‰æ
-	void Draw(int* image) const;
+	void Render(int* image) const;
 };
 

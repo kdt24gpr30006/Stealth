@@ -9,13 +9,15 @@ class Player
 
 public:
 
-	float GetRadius() { return r; }
+	// 座標のゲッター
+	Vec2<float> GetPos() const { return pos; }
+
+	// 半径のゲッター
+	float GetRadius() const { return r; }
+
 
 	// コンストラクタ
 	Player();
-
-	// 座標取得
-	Vec2<float> GetPos() const { return pos; }
 
 	// 動き
 	void Move(float deltaTime);

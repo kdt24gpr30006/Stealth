@@ -3,7 +3,10 @@
 
 Player::Player()
 {
-	pos.Set(static_cast<float>(WINDOW_W / 2), 600.0f);
+	const float startPosX = static_cast<float>(WINDOW_H) / 2.0f;
+	const float startPosY = 600.0f;
+
+	pos.Set(startPosX, startPosY);
 	r = 10.0f;
 	moveSpeed = 200.0f;
 }
