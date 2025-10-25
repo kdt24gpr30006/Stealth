@@ -1,10 +1,10 @@
 #include "Player.h"
 #include "WinMain.h"
 
-Player::Player()
+void Player::Init()
 {
-	const float startPosX = static_cast<float>(WINDOW_H) / 2.0f;
-	const float startPosY = 600.0f;
+	const float startPosX = static_cast<float>(WINDOW_W) / 2.0f;
+	const float startPosY = 800.0f;
 
 	pos.Set(startPosX, startPosY);
 	r = 10.0f;
@@ -50,5 +50,5 @@ void Player::Update(float deltaTime)
 
 void Player::Render() const
 {
-	DrawCircleAA(pos.x, pos.y, r, 32, GetColor(0, 0, 255), TRUE);
+	DrawCircleAA(pos.x, pos.y, r, 32, GetColor(255, 255, 255), TRUE);
 }

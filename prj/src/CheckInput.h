@@ -49,18 +49,18 @@ public:
 	// キーボード
 
 	// 押された瞬間を取得
-	bool PushHitKey(int key);
+	bool PushHitKey(int key) const;
 
 	// 離した瞬間を取得
-	bool ReleaseHitKey(int key);
+	bool ReleaseHitKey(int key) const;
 
 
 	// マウス
 	// 指定されなければどっちのクリックでも反応
 
 	// 押された瞬間を取得
-	bool PushMouseInput(int button = MOUSE_INPUT_LEFT | MOUSE_INPUT_RIGHT);
+	bool PushMouseInput(int button = MOUSE_INPUT_LEFT | MOUSE_INPUT_RIGHT) const;
 
 	// 離した瞬間を取得
-	bool ReleaseMouseInput(int button = MOUSE_INPUT_LEFT | MOUSE_INPUT_RIGHT);
+	bool ReleaseMouseInput(int button = MOUSE_INPUT_LEFT | MOUSE_INPUT_RIGHT) const;
 };

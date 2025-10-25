@@ -35,6 +35,9 @@
     <Filter Include="File\entity\element">
       <UniqueIdentifier>{851fef52-4a27-4743-8fe3-6cdc7538b350}</UniqueIdentifier>
     </Filter>
+    <Filter Include="File\entity\element\wall">
+      <UniqueIdentifier>{f2e059b0-8486-4528-8e0c-1aee76023af2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CheckInput.cpp">
@@ -54,6 +57,12 @@
     </ClCompile>
     <ClCompile Include="src\Enemy.cpp">
       <Filter>File\entity\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Element.cpp">
+      <Filter>File\entity\element</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Wall.cpp">
+      <Filter>File\entity\element\wall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="src\Element.h">
       <Filter>File\entity\element</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Wall.h">
+      <Filter>File\entity\element\wall</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

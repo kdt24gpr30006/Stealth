@@ -47,7 +47,7 @@ void CheckInputKey::Update()
 	}
 }
 
-bool CheckInputKey::PushHitKey(int key)
+bool CheckInputKey::PushHitKey(int key) const
 {
 	if (keyPushFream[key] == 1)
 	{
@@ -56,7 +56,7 @@ bool CheckInputKey::PushHitKey(int key)
 	return false;
 }
 
-bool CheckInputKey::ReleaseHitKey(int key)
+bool CheckInputKey::ReleaseHitKey(int key) const
 {
 	if (keyPushFream[key] == -1)
 	{
@@ -65,7 +65,7 @@ bool CheckInputKey::ReleaseHitKey(int key)
 	return false;
 }
 
-bool CheckInputKey::PushMouseInput(int button)
+bool CheckInputKey::PushMouseInput(int button) const
 {
 	if (button & MOUSE_INPUT_LEFT)
 	{
@@ -84,7 +84,7 @@ bool CheckInputKey::PushMouseInput(int button)
 	return false;
 }
 
-bool CheckInputKey::ReleaseMouseInput(int button)
+bool CheckInputKey::ReleaseMouseInput(int button) const
 {
 	if (button & MOUSE_INPUT_LEFT)
 	{

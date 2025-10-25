@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Vec2.h"
 
 class Player
@@ -17,7 +18,11 @@ public:
 
 
 	// コンストラクタ
-	Player();
+	Player() : r(0.0f), moveSpeed(0.0f) {}
+	~Player() {}
+
+	// 初期化
+	void Init();
 
 	// 動き
 	void Move(float deltaTime);

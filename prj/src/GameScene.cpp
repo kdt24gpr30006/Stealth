@@ -9,7 +9,7 @@
 std::vector<std::shared_ptr<Enemy>> GameScene::LoadEnemyInfo()
 {
 	// ファイル読み込み
-	std::ifstream file("data/enemy/csv/Init.csv");
+	std::ifstream file("data/enemy/csv/EnemyInit.csv");
 
     // 読み込めたか
     if (!file.is_open()) {
@@ -21,7 +21,8 @@ std::vector<std::shared_ptr<Enemy>> GameScene::LoadEnemyInfo()
     // 一行目スキップ
     std::getline(file, line);
 
-    std::vector<std::shared_ptr<Enemy>> enemies;
+    // 返す敵のベクター
+    std::vector<std::shared_ptr<Enemy>> retEnemies;
 
     // 各行を読み込み、敵キャラクターを作成
     while (std::getline(file, line))
@@ -75,18 +76,24 @@ std::vector<std::shared_ptr<Enemy>> GameScene::LoadEnemyInfo()
         }
 
         // 敵キャラクターをベクターに追加
-        enemies.emplace_back(enemy);
+        retEnemies.emplace_back(enemy);
     }
 
     file.close();
-    return enemies;
+
+	return retEnemies;
 }
 
 void GameScene::Init()
 {
 	// インスタンス作成
 	player = std::make_shared<Player>();
+    element = std::make_shared<Element>();
 	
+    // インスタンス初期化
+    player->Init();
+    element->Init();
+
 	// csvファイルから敵の初期化
 	enemies = LoadEnemyInfo();
 
@@ -120,6 +127,7 @@ void GameScene::Update()
 			printfDx("Player Spotted!\n");
 		}
 	}
+    element->Update();
 }
 
 void GameScene::Render()
@@ -130,4 +138,5 @@ void GameScene::Render()
 	{
 		enemy->Render(&enemySearchImage);
 	}
+    element->Render();
 }

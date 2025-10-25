@@ -1,6 +1,8 @@
 #pragma once
+
 #include "Player.h"
 #include "Enemy.h"
+#include "Element.h"
 #include <chrono>
 #include <vector>
 #include <memory>
@@ -11,6 +13,8 @@ class GameScene
 	std::shared_ptr<Player> player;
 	// “GƒLƒƒƒ‰ƒNƒ^[
 	std::vector<std::shared_ptr<Enemy>> enemies;
+	// ƒQ[ƒ€‚Ì—v‘f
+	std::shared_ptr<Element> element;
 
 	// “G‚Ì‹ŠE‰æ‘œ
 	int enemySearchImage;	

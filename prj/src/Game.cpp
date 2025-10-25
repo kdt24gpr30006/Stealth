@@ -35,7 +35,7 @@ bool Game::Init()
 	SetMainWindowText("Don't Get Seen"); // 見つかるな
 
 	// 背景色の設定
-	SetBackgroundColor(128, 128, 128);
+	SetBackgroundColor(0, 0, 0);
 
 	// ウィンドウ描画モード設定
 	SetDrawScreen(DX_SCREEN_BACK);			// 裏画面に描画する
