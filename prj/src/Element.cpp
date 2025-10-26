@@ -7,7 +7,7 @@
 std::vector<std::shared_ptr<Wall>> Element::LoadWallInfo()
 {
 	// ファイル読み込み
-	std::ifstream file("data/enemy/csv/WallInit.csv");
+	std::ifstream file("data/wall/WallInit.csv");
 
 	// 読み込めたか
 	if (!file.is_open()) {
@@ -29,26 +29,34 @@ std::vector<std::shared_ptr<Wall>> Element::LoadWallInfo()
 		std::string cell;
 
 		// 読み取る情報
-		Vec2<float> start, end;
+		Vec2<float> leftUp, leftDown, rightDown, rightUp;
 
 		// CSVの各カラムを読み込む
-		// X座標
+		// 左上の座標
 		std::getline(lineStream, cell, ',');
-		start.x = std::stof(cell);
-
-		// Y座標
+		leftUp.x = std::stof(cell);
 		std::getline(lineStream, cell, ',');
-		start.y = std::stof(cell);
+		leftUp.y = std::stof(cell);
 
-		// X座標
+		// 左下の座標
 		std::getline(lineStream, cell, ',');
-		end.x = std::stof(cell);
-
-		// Y座標
+		leftDown.x = std::stof(cell);
 		std::getline(lineStream, cell, ',');
-		end.y = std::stof(cell);
+		leftDown.y = std::stof(cell);
 
-		auto wall = std::make_shared<Wall>(start, end);
+		// 右下の座標
+		std::getline(lineStream, cell, ',');
+		rightDown.x = std::stof(cell);
+		std::getline(lineStream, cell, ',');
+		rightDown.y = std::stof(cell);
+
+		// 右上の座標
+		std::getline(lineStream, cell, ',');
+		rightUp.x = std::stof(cell);
+		std::getline(lineStream, cell, ',');
+		rightUp.y = std::stof(cell);
+
+		auto wall = std::make_shared<Wall>(leftUp, leftDown, rightDown, rightUp);
 
 		retWalls.emplace_back(wall);
 	}
@@ -66,13 +74,9 @@ void Element::Init()
 	walls = LoadWallInfo();
 }
 
-void Element::Update()
-{
-}
-
 void Element::Render() const
 {
-	DrawCircleAA(goalPos.x, goalPos.y, 50.0f, 32, GetColor(255, 255, 255), FALSE);
+	DrawCircleAA(goalPos.x, goalPos.y, goalRadius, 32, GetColor(255, 255, 255), FALSE);
 	for (const auto& wall : walls)
 	{
 		wall->Render();

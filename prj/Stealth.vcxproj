@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -144,20 +144,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\CheckInput.cpp" />
+    <ClCompile Include="src\CollisionUtils.cpp" />
     <ClCompile Include="src\Element.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameClear.cpp" />
+    <ClCompile Include="src\GameOver.cpp" />
     <ClCompile Include="src\GameScene.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\TitleScene.cpp" />
     <ClCompile Include="src\Wall.cpp" />
     <ClCompile Include="src\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CheckInput.h" />
+    <ClInclude Include="src\CollisionUtils.h" />
     <ClInclude Include="src\Element.h" />
+    <ClInclude Include="src\GameClear.h" />
+    <ClInclude Include="src\GameOver.h" />
     <ClInclude Include="src\Image.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\GameScene.h" />
+    <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\TitleScene.h" />
     <ClInclude Include="src\Vec2.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Player.h" />

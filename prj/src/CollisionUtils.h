@@ -1,0 +1,6 @@
+#pragma once
+#include "Vec2.h"
+#include "Wall.h"
+
+// â~Ç∆ï«ÇÃè’ìÀîªíË
+bool CheckCircleWithWall(const Vec2<float>& circlePos, float circleRadius, const Wall& wall, Vec2<float>& outPush);

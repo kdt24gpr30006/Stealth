@@ -1,14 +1,15 @@
 #include "Player.h"
 #include "WinMain.h"
+#include <algorithm>
 
 void Player::Init()
 {
 	const float startPosX = static_cast<float>(WINDOW_W) / 2.0f;
-	const float startPosY = 800.0f;
+	const float startPosY = 850.0f;
 
 	pos.Set(startPosX, startPosY);
-	r = 10.0f;
-	moveSpeed = 200.0f;
+	radius = 10.0f;
+	moveSpeed = 150.0f;
 }
 
 void Player::Move(float deltaTime)
@@ -41,6 +42,10 @@ void Player::Move(float deltaTime)
 		// à⁄ìÆ
 		pos = pos + move * (moveSpeed * deltaTime);
 	}
+
+	// âÊñ äOÇ…èoÇ»Ç¢ÇÊÇ§
+	pos.x = std::clamp(pos.x, radius, WINDOW_W - radius);
+	pos.y = std::clamp(pos.y, radius, WINDOW_H - radius);
 }
 
 void Player::Update(float deltaTime)
@@ -50,5 +55,5 @@ void Player::Update(float deltaTime)
 
 void Player::Render() const
 {
-	DrawCircleAA(pos.x, pos.y, r, 32, GetColor(255, 255, 255), TRUE);
+	DrawCircleAA(pos.x, pos.y, radius, 32, GetColor(255, 255, 255), TRUE);
 }

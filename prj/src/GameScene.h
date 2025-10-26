@@ -1,5 +1,6 @@
 #pragma once
 
+#include "SceneManager.h"
 #include "Player.h"
 #include "Enemy.h"
 #include "Element.h"
@@ -7,7 +8,7 @@
 #include <vector>
 #include <memory>
 
-class GameScene
+class GameScene : public Scene
 {
 	// プレイヤー
 	std::shared_ptr<Player> player;
@@ -17,7 +18,7 @@ class GameScene
 	std::shared_ptr<Element> element;
 
 	// 敵の視界画像
-	int enemySearchImage;	
+	int enemySearchImage;
 
 	// 時間計測用クロック
 	using Clock = std::chrono::steady_clock;
@@ -31,10 +32,20 @@ class GameScene
 	// 敵の情報をcsvから読み込み
 	std::vector<std::shared_ptr<Enemy>> LoadEnemyInfo();
 
+	// 線分と線分の交差判定
+	bool CheckLineWithLine(const Vec2<float>& lineA1, const Vec2<float>& lineA2, const Vec2<float>& lineB1, const Vec2<float>& lineB2);
+	// プレイヤーと敵の間に壁があるか
+	bool CheckLineWall(const Vec2<float>& from, const Vec2<float>& to, const std::vector<std::shared_ptr<Wall>>& walls);
+
+	// プレイヤーがゴールしたか
+	bool CheckPlayerGoal(const Vec2<float>& playerPos, const float playerRadius, const Vec2<float>& goalPos, const float goalRadius);
+
+public:
+
 	// コンストラクタ
-	GameScene() :
-		prevTime(Clock::now()), deltaTime(0.0f), totalTime(0.0f), enemySearchImage(-1){}
-	~GameScene() 
+	GameScene(std::shared_ptr<SceneManager> pManager) : Scene(pManager), prevTime(Clock::now()), deltaTime(0.0f), totalTime(0.0f), enemySearchImage(-1) {}
+
+	~GameScene()
 	{
 		// 画像の解放
 		if (enemySearchImage != -1)
@@ -42,19 +53,6 @@ class GameScene
 			DeleteGraph(enemySearchImage);
 			enemySearchImage = -1;
 		}
-	}
-
-public:
-
-	// コピー禁止
-	GameScene(const GameScene&) = delete;
-	GameScene& operator=(const GameScene&) = delete;
-
-	// シングルトンインスタンス取得
-	static GameScene& GetInstance()
-	{
-		static GameScene instance;
-		return instance;
 	}
 
 	// 初期化

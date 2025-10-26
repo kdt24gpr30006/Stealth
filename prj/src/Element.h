@@ -9,6 +9,7 @@ class Element
 {
 	// ゴールの座標
 	Vec2<float> goalPos;
+	float goalRadius;
 
 	// 壁
 	std::vector<std::shared_ptr<Wall>> walls;
@@ -17,10 +18,21 @@ class Element
 	std::vector<std::shared_ptr<Wall>> LoadWallInfo();
 
 public:
-	Element() {}
+
+	// 壁リストを返す
+	const std::vector<std::shared_ptr<Wall>>& GetWalls() const { return walls; }
+
+	// ゴールの座標を返す
+	const Vec2<float>& GetGoalPos() const { return goalPos; }
+	// ゴールの半径を返す
+	const float GetGoalRadius() const { return goalRadius; }
+
+	// コンストラクタ
+	Element() : goalRadius(20.0f) {}
 	~Element() {}
 
+	// 初期化
 	void Init();
-	void Update();
+	// 描画
 	void Render() const;
 };

@@ -15,6 +15,7 @@ static float ToDeg(float radian)
 
 void Enemy::SetPatrolRoute(const Vec2<float> route)
 {
+	// 巡回経路追加
 	patrolRoute.emplace_back(route);
 }
 
@@ -26,7 +27,7 @@ Vec2<float> Enemy::Forward() const
 
 bool Enemy::CanSeePlayer(const std::shared_ptr<Player> player) const
 {
- // プレイヤーの中心からの距離
+	// プレイヤーの中心からの距離
     Vec2<float> toPlayer = player->GetPos() - pos;
 
 	// プレイヤーの半径を視界距離に加算
@@ -43,7 +44,10 @@ bool Enemy::CanSeePlayer(const std::shared_ptr<Player> player) const
 	// 内積を計算
 	float dp = toPlayerN.Dot(Forward());
 	// 視野角内なら見える
-	return dp >= cosThresh;
+	bool isInFov = (dp >= cosThresh);
+	
+	// 見えているならtrueを返す
+	return isInFov;
 }
 
 void Enemy::Update(float deltaTime)
@@ -85,7 +89,7 @@ void Enemy::Update(float deltaTime)
 void Enemy::Render(int* image) const
 {
 	// 本体描画
-	DrawCircleAA(pos.x, pos.y, 12, 32, GetColor(255, 0, 0), TRUE);
+	DrawCircleAA(pos.x, pos.y, radius, 32, GetColor(255, 0, 0), TRUE);
 
 	// 視界画像描画
 
@@ -103,17 +107,21 @@ void Enemy::Render(int* image) const
 	// 画像のスケール(視界距離に合わせるように)
 	float scale = dist / 100.0f * 0.8f;
 
+	// 半透明
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
+
 	// 扇形の描画
 	DrawCircleGaugeF(pos.x, pos.y, static_cast<double>(endPercent), *image, 
 		static_cast<double>(startPercent), static_cast<double>(scale));
 
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 #if _DEBUG
 	// 巡回経路の線を描画
 	for (size_t i = 0; i < patrolRoute.size(); ++i)
 	{
 		Vec2<float> from = patrolRoute[i];
 		Vec2<float> to = patrolRoute[(i + 1) % patrolRoute.size()];
-		DrawLineAA(from.x, from.y, to.x, to.y, GetColor(0, 255, 0));
+		DrawLineAA(from.x, from.y, to.x, to.y, GetColor(255, 0, 0));
 	}
 #endif // _DEBUG
 }

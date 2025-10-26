@@ -5,20 +5,26 @@
 class Player
 {
 	Vec2<float> pos;	// 座標
-	float r;			// 半径
+	float radius;			// 半径
 	float moveSpeed;	// 移動速度
 
 public:
+
+	// 座標のセッター
+	void SetPos(const Vec2<float>& newPos) 
+	{
+		pos = newPos; 
+	}
 
 	// 座標のゲッター
 	Vec2<float> GetPos() const { return pos; }
 
 	// 半径のゲッター
-	float GetRadius() const { return r; }
+	float GetRadius() const { return radius; }
 
 
 	// コンストラクタ
-	Player() : r(0.0f), moveSpeed(0.0f) {}
+	Player() : radius(0.0f), moveSpeed(0.0f) {}
 	~Player() {}
 
 	// 初期化

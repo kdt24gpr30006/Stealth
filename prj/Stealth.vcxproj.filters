@@ -20,9 +20,6 @@
     <Filter Include="リソース ファイル\out_game\input">
       <UniqueIdentifier>{93e4df91-0097-4b53-bffb-28132fb75ae1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\out_game\Field">
-      <UniqueIdentifier>{8f19b128-7000-4fa2-b19b-a93a0bcc8c28}</UniqueIdentifier>
-    </Filter>
     <Filter Include="File\entity">
       <UniqueIdentifier>{694c5a00-50c9-49e3-9777-91087ccac7fa}</UniqueIdentifier>
     </Filter>
@@ -38,6 +35,12 @@
     <Filter Include="File\entity\element\wall">
       <UniqueIdentifier>{f2e059b0-8486-4528-8e0c-1aee76023af2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\out_game\collision">
+      <UniqueIdentifier>{643508da-a236-4064-a19c-ca70a27c03b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\out_game\field">
+      <UniqueIdentifier>{8f19b128-7000-4fa2-b19b-a93a0bcc8c28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CheckInput.cpp">
@@ -52,9 +55,6 @@
     <ClCompile Include="src\Player.cpp">
       <Filter>File\entity\player</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameScene.cpp">
-      <Filter>File\scene</Filter>
-    </ClCompile>
     <ClCompile Include="src\Enemy.cpp">
       <Filter>File\entity\enemy</Filter>
     </ClCompile>
@@ -64,6 +64,19 @@
     <ClCompile Include="src\Wall.cpp">
       <Filter>File\entity\element\wall</Filter>
     </ClCompile>
+    <ClCompile Include="src\CollisionUtils.cpp">
+      <Filter>リソース ファイル\out_game\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameScene.cpp">
+      <Filter>File\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TitleScene.cpp">
+      <Filter>File\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameOver.cpp">
+      <Filter>File\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameClear.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CheckInput.h">
@@ -81,20 +94,35 @@
     <ClInclude Include="src\Enemy.h">
       <Filter>File\entity\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameScene.h">
-      <Filter>File\scene</Filter>
-    </ClInclude>
     <ClInclude Include="src\Image.h">
-      <Filter>リソース ファイル\out_game\Field</Filter>
+      <Filter>リソース ファイル\out_game\field</Filter>
     </ClInclude>
     <ClInclude Include="src\Vec2.h">
-      <Filter>リソース ファイル\out_game\Field</Filter>
+      <Filter>リソース ファイル\out_game\field</Filter>
     </ClInclude>
     <ClInclude Include="src\Element.h">
       <Filter>File\entity\element</Filter>
     </ClInclude>
     <ClInclude Include="src\Wall.h">
       <Filter>File\entity\element\wall</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CollisionUtils.h">
+      <Filter>リソース ファイル\out_game\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManager.h">
+      <Filter>File\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameScene.h">
+      <Filter>File\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TitleScene.h">
+      <Filter>File\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameOver.h">
+      <Filter>File\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameClear.h">
+      <Filter>File\scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

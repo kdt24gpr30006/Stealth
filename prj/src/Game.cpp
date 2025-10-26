@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "TitleScene.h"
 
 void Game::input()
 {
@@ -9,9 +10,9 @@ void Game::input()
 void Game::GameLoop()
 {
 	// ゲームシーンの更新
-	gameScene.Update();
+	manager->Update();
 	// ゲームシーンの描画
-	gameScene.Render();
+	manager->Render();
 }
 
 bool Game::Init()
@@ -32,7 +33,7 @@ bool Game::Init()
 	SetGraphMode(WINDOW_W, WINDOW_H, 32);
 
 	// ウィンドウのタイトル
-	SetMainWindowText("Don't Get Seen"); // 見つかるな
+	SetMainWindowText("Shadow Heist");
 
 	// 背景色の設定
 	SetBackgroundColor(0, 0, 0);
@@ -46,8 +47,9 @@ bool Game::Init()
 		return false;						// エラーが起きたら直ちに終了
 	}
 
-	// ゲームシーンの初期化
-	gameScene.Init();
+	// シーンの管理システム
+	manager = std::make_shared<SceneManager>();
+	manager->ChengeScene(std::make_shared<TitleScene>(manager));
 
 	return true;
 }

@@ -9,7 +9,7 @@
 class Enemy
 {
 	Vec2<float> pos;    // 座標
-	float r;			// 半径
+	float radius;		// 半径
 	float angle;		// 向き
 	float fov;			// 視野角
 	float dist;			// 視界距離
@@ -24,9 +24,12 @@ class Enemy
 
 public:
 
+	// 座標のゲッター
+	Vec2<float> GetPos() const { return pos; }
+
 	// コンストラクタ
 	Enemy(const Vec2<float>& startPos, float argR, float argAngle, float argFov, float argDist, float argSpeed)
-		: pos(startPos), r(argR), angle(argAngle), fov(argFov), dist(argDist), moveSpeed(argSpeed){}
+		: pos(startPos), radius(argR), angle(argAngle), fov(argFov), dist(argDist), moveSpeed(argSpeed){}
 
 	// 巡回経路の設定
 	void SetPatrolRoute(const Vec2<float> route);
