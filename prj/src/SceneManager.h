@@ -4,42 +4,47 @@
 
 class SceneManager;
 
-// ƒV[ƒ“‚ÌŠî’êƒNƒ‰ƒX
+// ï¿½Vï¿½[ï¿½ï¿½ï¿½ÌŠï¿½ï¿½Nï¿½ï¿½ï¿½X
 class Scene
 {
 protected:
-	// ƒV[ƒ“ƒ}ƒl[ƒWƒƒ[‚Ö‚ÌQÆ
+	// ï¿½Vï¿½[ï¿½ï¿½ï¿½}ï¿½lï¿½[ï¿½Wï¿½ï¿½ï¿½[ï¿½Ö‚ÌQï¿½ï¿½
 	std::shared_ptr<SceneManager> manager;
 public:
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	// ƒV[ƒ“ƒ}ƒl[ƒWƒƒ[‚ÌQÆ‚ğó‚¯æ‚é
+	// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
+	// ï¿½Vï¿½[ï¿½ï¿½ï¿½}ï¿½lï¿½[ï¿½Wï¿½ï¿½ï¿½[ï¿½ÌQï¿½Æ‚ï¿½ï¿½ó‚¯ï¿½ï¿½
 	Scene(std::shared_ptr<SceneManager> pManager) { manager = pManager; };
 
 	virtual ~Scene() {}
-	virtual void Init() = 0;	// ‰Šú‰»
-	virtual void Update() = 0;	// XV
-	virtual void Render() = 0;	// •`‰æ
+	virtual void Init() = 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	virtual void Update() = 0;	// ï¿½Xï¿½V
+	virtual void Render() = 0;	// ï¿½`ï¿½ï¿½
 };
 
 class SceneManager
 {
 
-	// Œ»İ‚ÌƒV[ƒ“
+	// ï¿½ï¿½ï¿½İ‚ÌƒVï¿½[ï¿½ï¿½
 	std::shared_ptr<Scene> currentScene;
 public:
 
 	SceneManager() {};
 	virtual ~SceneManager() {}
 
-	// ƒV[ƒ“•ÏX
+	// ï¿½Vï¿½[ï¿½ï¿½ï¿½ÏX
 	void ChengeScene(std::shared_ptr<Scene> newScene)
 	{
-		currentScene = newScene;
-		currentScene->Init();
+		// å¤ã„ã‚·ãƒ¼ãƒ³ã‚’è§£æ”¾ã™ã‚‹ãŸã‚ nullptr ã«è¨­å®š
+		currentScene.reset();
+		
+		if (newScene) {
+			currentScene = newScene;
+			currentScene->Init();
+		}
 	}
 
-	// XV
-	void Update() const
+	// ï¿½Xï¿½V
+	void Update()
 	{
 		if (currentScene)
 		{
@@ -49,8 +54,8 @@ public:
 
 	}
 
-	// •`‰æ
-	void Render() const
+	// ï¿½`ï¿½ï¿½
+	void Render()
 	{
 		if (currentScene)
 		{

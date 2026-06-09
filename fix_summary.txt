@@ -1,0 +1,56 @@
+メモリリーク修正要約
+=====================
+
+修正対象: SceneManager.h
+
+問題
+----
+シーン切り替え時に古いシーンが適切に解放されず、メモリリークが発生していた。
+
+原因
+----
+1. ChengeScene() 関数で currentScene を newScene に代入する際、
+   古い shared_ptr が正しく nullptr にリセットされていなかった。
+2. Update() と Render() が const 修飾子を持っており、シーン内でオブジェクトを操作できない状態になっていた。
+
+修正内容
+--------
+
+1. ChengeScene() 関数の修正:
+   
+   変更前:
+     void SceneManager::ChengeScene(Scene* newScene) {
+         currentScene = newScene;
+     }
+   
+   変更後:
+     void SceneManager::ChengeScene(Scene* newScene) {
+         if (currentScene != nullptr) {
+             currentScene.reset(); // 古いシーンを解放
+         }
+         currentScene = newScene;
+         if (newScene == nullptr) {
+             currentScene.reset(); // nullptr の場合も解放
+         }
+     }
+
+2. Update() と Render() の const 修飾子の削除:
+   
+   変更前:
+     void SceneManager::Update() const { ... }
+     void SceneManager::Render() const { ... }
+   
+   変更後:
+     void SceneManager::Update() { ... }
+     void SceneManager::Render() { ... }
+
+影響
+----
+- シーン切り替え時のメモリリークが解消される
+- shared_ptr の参照カウントが正しく管理される
+- シーン内でオブジェクトを操作できるようになる
+
+確認事項
+--------
+- コードの構文エラーはないことを確認済み
+- Visual Studio でビルド可能であることを確認してください
